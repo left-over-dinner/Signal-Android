@@ -42,12 +42,13 @@ before_script:
     - adb shell input keyevent 82 &
 
 script:
-    - "./gradlew clean"
+    # "./gradlew clean"
+    - "./gradlew installDebugAndroidTest"
     - "./gradlew generatePlayDebugSources"
     - "./gradlew compilePlayDebugSources"
     - "./gradlew mockableAndroidJar"
     - "./gradlew compilePlayDebugUnitTestSources"
     - "./gradlew test"
-    - "./gradlew testPlayDebugUnitTest"
+    #- "./gradlew testPlayDebugUnitTest"
     #- "./gradlew connectedAndroidTest" #This one will run the UI test
     - "adb shell am instrument -w -r   -e package org.thoughtcrime.securesms.InstrumentedTest -e debug false org.thoughtcrime.securesms.test/androidx.test.runner.AndroidJUnitRunner"
