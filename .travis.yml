@@ -43,12 +43,14 @@ before_script:
 
 script:
     - "./gradlew clean"
-    - "./gradlew installDebugAndroidTest"
+    #- "./gradlew installDebugAndroidTest"
     - "./gradlew generatePlayDebugSources"
     - "./gradlew compilePlayDebugSources"
     - "./gradlew mockableAndroidJar"
     - "./gradlew compilePlayDebugUnitTestSources"
     - "./gradlew test"
+    - "./gradlew -Pandroid.testInstrumentationRunnerArguments.package=org.thoughtcrime.securesms.InstrumentedTest connectedAndroidTest"
     #- "./gradlew testPlayDebugUnitTest"
     #- "./gradlew connectedAndroidTest" #This one will run the UI test
-    - "adb shell am instrument -w -r   -e package org.thoughtcrime.securesms.InstrumentedTest -e debug false org.thoughtcrime.securesms.test/androidx.test.runner.AndroidJUnitRunner"
+    #- "./gradlew connectedAndroidTest"
+    #- "adb shell am instrument -w -r   -e package org.thoughtcrime.securesms.InstrumentedTest -e debug false org.thoughtcrime.securesms.test/androidx.test.runner.AndroidJUnitRunner"
