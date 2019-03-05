@@ -49,7 +49,7 @@ script:
     - "./gradlew mockableAndroidJar"
     - "./gradlew compilePlayDebugUnitTestSources"
     - "./gradlew test"
-    - "./gradlew -Pandroid.testInstrumentationRunnerArguments.package=org.thoughtcrime.securesms.InstrumentedTest connectedAndroidTest"
+    - "./gradlew -Pandroid.testInstrumentationRunnerArguments.package=org.thoughtcrime.securesms.UIInstrumentedTest connectedAndroidTest"
     #- "./gradlew testPlayDebugUnitTest"
     #- "./gradlew connectedAndroidTest" #This one will run the UI test
     #- "./gradlew connectedAndroidTest"
